@@ -13,7 +13,6 @@ export const isAuth = async (req, res, next) => {
             return res.status(403).json({ message: "token expired" });
         //now we can easiy find user with decoded data
         req.user =await User.findById(decodedData.id) //req.user._id
-
         next();
     } catch (error) {
         res.status(500).json({ message: "Please Login" });

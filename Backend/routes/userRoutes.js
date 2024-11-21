@@ -1,6 +1,7 @@
 import express from "express";
 import {
     followAndUnfolloUser,
+    logOutUser,
     loginUser,
     myProfile,
     registerUser,
