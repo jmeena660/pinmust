@@ -32,7 +32,6 @@ export const UserProvider = ({ children }) => {
   async function fetchUser() {
     try {
       const { data } = await axios.get("/api/user/me");
-
       setUser(data);
       setIsAuth(true);
       setLoading(false);
@@ -43,7 +42,7 @@ export const UserProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    fetchUser;
+    fetchUser();
   }, []);
 
   return (
