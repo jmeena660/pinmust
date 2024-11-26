@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserData } from "../context/UserContext";
+import { LoadingAnimation } from "../components/Loading";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const {loginUser, btnLoading} =UserData()
+  const navigate=useNavigate()
+
   const submitHandler = (e) => {
-    e.preventDefalut(); //because we are using in while form submitting so form doesn't get reload we are using it
-    console.log(email, password);
+    e.preventDefault(); //because we are using in while form submitting so form doesn't get reload we are using it
+    loginUser(email, password,navigate);
   };
 
   return (
@@ -22,7 +27,7 @@ const Login = () => {
         </div>
         <h2 className="text-2xl font-semibold text-center mb-6">
           Login to see more
-        </h2>
+        </h2> 
         <form onSubmit={submitHandler}>
           <div className="mb-4">
             <label
@@ -50,15 +55,15 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              className="common-input "
+              className="common-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
 
-          <button type="submit" className="common-btn">
-            Log In
+          <button type="submit" className="common-btn" disabled={btnLoading}>
+            {btnLoading?<LoadingAnimation/>:"Log in"}
           </button>
         </form >
         <div className="mt-6 text-center ">
