@@ -1,19 +1,30 @@
-import {BrowserRouter,Route,Router, Routes} from 'react-router-dom'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from './pages/Register'
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import { UserData } from "./context/UserContext";
+import { Loading } from "./components/Loading";
 
 const App = () => {
-  
-return <>
-<BrowserRouter>
-<Routes>
-  <Route path='/' element={<Home/>}/>
-  <Route path='/login' element={<Login/>}/>
-  <Route path='/register' element={<Register/>}/>
-</Routes>
-</BrowserRouter>
-</>
-}
+  const { loading, isAuth, user } = UserData();
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={isAuth ? <Home /> : <Login />} />
+            <Route path="/login" element={isAuth ? <Home /> : <Login />} />
+            <Route
+              path="/register"
+              element={isAuth ? <Home /> : <Register />}
+            />
+          </Routes>
+        </BrowserRouter>
+      )}
+    </>
+  );
+};
 
-export default App
+export default App;
