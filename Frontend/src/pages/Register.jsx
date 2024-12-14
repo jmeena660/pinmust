@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserData } from "../context/UserContext";
 import { LoadingAnimation } from "../components/Loading";
-//import { PinData } from "../context/PinContext";
+import { PinData } from "../context/PinContext";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -12,11 +12,11 @@ const Register = () => {
   const { registerUser, btnLoading } = UserData();
   const navigate = useNavigate();
 
-  //const { fetchPins } = PinData();
+  const { fetchPins } = PinData();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    registerUser(name, email, password, navigate, );
+    registerUser(name, email, password, navigate, fetchPins);
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -84,7 +84,7 @@ const Register = () => {
           <button type="submit" className="common-btn" disabled={btnLoading}>
             {btnLoading ? <LoadingAnimation /> : "Register"}
           </button>
-        </form>
+        </form> 
 
         <div className="mt-6 text-center">
           <div className="relative mb-4">
