@@ -7,7 +7,6 @@ const PinContext = createContext();
 export const PinProvider = ({ children }) => {
   const [pins, setPins] = useState([]);
   const [loading, setLoading] = useState(true);
-
   async function fetchPins() {
     try {
       const { data } = await axios.get("/api/pin/all");
@@ -92,8 +91,7 @@ export const PinProvider = ({ children }) => {
     navigate
   ) {
     try {
-      const { data } = await axios.post("/api/pin/new", formData);
-
+      const { data } = await axios.post("/api/pin/new", formData);  
       toast.success(data.message);
       setFile([]);
       setFilePrev("");

@@ -10,12 +10,12 @@ export const Create = () => {
   const handleClick = () => {
     inputRef.current.click();
   };
-  const [File, setFile] = useState("");
+  const [file, setFile] = useState("");
   const [FilePrev, setFilePrev] = useState("");
   const [title, setTitle] = useState("");
   const [pin, setPin] = useState("");
 
-  const {addPin}=PinData()
+  const { addPin } = PinData();
   const changeFileHandler = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -25,21 +25,19 @@ export const Create = () => {
       setFile(file);
     };
   };
+  const navigate = useNavigate();
 
-  const navigate=useNavigate()
-
-  const addPinHandler=(e)=>{
+  const addPinHandler = (e) => {
     e.preventDefault();
 
-    const formData=new FormData()
+    const formData = new FormData();
 
-    formData.append("title", title)
-    formData.append("pin",pin)
-    formData.append("file",file) 
+    formData.append("title", title);
+    formData.append("pin", pin);
+    formData.append("file", file);
 
-
-    addPin(formData,setFilePrev,setFile,setTitle,setPin,navigate)
-  }
+    addPin(formData, setFilePrev, setFile, setTitle, setPin, navigate);
+  };
   return (
     <div>
       <div className="flex flex-wrap justify-center items-center gap-2 mt-10">
@@ -69,7 +67,10 @@ export const Create = () => {
         </div>
         <div>
           <div className="flex items-center justify-center bg-grey-100">
-            <form className="w-full max-w-lg p-6 bg-white rounded-lg shadow-lg" onSubmit={addPinHandler}>
+            <form
+              className="w-full max-w-lg p-6 bg-white rounded-lg shadow-lg"
+              onSubmit={addPinHandler}
+            >
               <div className="mb-4">
                 <label
                   htmlFor="title"
