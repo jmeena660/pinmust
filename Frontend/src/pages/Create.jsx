@@ -92,7 +92,7 @@ export const Create = () => {
                   htmlFor="pin"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Pin
+                  Description
                 </label>
                 <input
                   type="text"

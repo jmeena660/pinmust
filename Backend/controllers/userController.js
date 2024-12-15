@@ -88,10 +88,10 @@ export const followAndUnfolloUser= TryCatch(async(req,res)=>{
     
     //checking if we already following the user.. do we have our id in the user's followers array
     if(user.followers.includes(loggedInUser._id)){//if yes the we firstfind index and then delete it(unfolllow it)
-        const indexFollowing=loggedInUser.followings.indexOf(user._id) //we got the index of the One who we are following uaki is hamare following m hogi cause we follow him
+        const indexFollowing=loggedInUser.following.indexOf(user._id) //we got the index of the One who we are following uaki is hamare following m hogi cause we follow him
         const indexFollowers=user.followers.indexOf(loggedInUser._id);// we got the index of ourself 
 
-        loggedInUser.followings.splice(indexFollowers,1)  //loggedin user mtlb we ki followings ki array se user ki id splice karenge
+        loggedInUser.following.splice(indexFollowing,1)  //loggedin user mtlb we ki followings ki array se user ki id splice karenge
         user.followers.splice(indexFollowers,1); //user ki followers m se khud ko hata denge apni index
 
         await loggedInUser.save()
@@ -101,7 +101,7 @@ export const followAndUnfolloUser= TryCatch(async(req,res)=>{
             message:"User Unfollowed"
         })
     }else{       // if we are not following the user
-        loggedInUser.followings.push(user._id);
+        loggedInUser.following.push(user._id);
         user.followers.push(loggedInUser._id);
 
         await loggedInUser.save();

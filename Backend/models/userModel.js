@@ -13,7 +13,7 @@ const schema = new mongoose.Schema(
                 ref: "User",
             },
         ],
-        followings: [
+        following: [
             {
                 //because we'll have many following type:is object_id so
                 type: mongoose.Schema.Types.ObjectId,
