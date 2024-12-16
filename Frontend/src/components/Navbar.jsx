@@ -12,7 +12,7 @@ const Navbar = ({ user }) => {
               alt=""
               className="h-6 md:mr-2"
             />
-            <span className="text-red-600 text-xl font-bold">Pinterest</span>
+            <span className="text-red-600 text-xl font-bold">PinnnnIT</span>
           </Link>
 
           <div className="flex items-center space-x-4 w-[200px]">
