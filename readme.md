@@ -17,7 +17,7 @@ PinMust is a modern and minimalist Pinterest-inspired web application. It offers
 - **Backend**: Node.js, Express.js  
 - **Database**: MongoDB  
 - **Authentication**: JSON Web Tokens (JWT)  
-- **Deployment**: (e.g., Vercel, Heroku, or AWS)  
+- **Deployment**: Render  
 
 ## Getting Started  
 ### untill deployment
