@@ -33,4 +33,4 @@ PinMust is a modern and minimalist Pinterest-inspired web application. It offers
    ```bash
    git clone https://github.com/ProksFinex/pinmust.git  
    cd pinmust  
->>>>>>> 16ab9198e704f48e67e97a4b403bb9ebe999cc59
+
